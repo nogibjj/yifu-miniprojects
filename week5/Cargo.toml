@@ -1,0 +1,7 @@
+[package]
+name = "morse-code-converter"
+version = "0.1.0"
+authors = ["Yifu "]
+edition = "2021"
+
+[dependencies]
