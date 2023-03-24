@@ -1,4 +1,5 @@
 use lambda_runtime::{run, service_fn, Error, LambdaEvent};
+
 use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize)]
@@ -12,18 +13,20 @@ struct Response {
     msg: String,
 }
 
+/// This is the main body for the function.
+/// Write your code inside it.
+/// There are some code example in the following URLs:
+/// - https://github.com/awslabs/aws-lambda-rust-runtime/tree/main/examples
+/// - https://github.com/aws-samples/serverless-rust-demo/
 async fn function_handler(event: LambdaEvent<Request>) -> Result<Response, Error> {
     // Extract some useful info from the request
     let name = event.payload.name;
-    let logic = match name.as_str() {
-        "Marco" => "Polo",
-        _ => "Who?",
-    };
+    let response = if name == "Marco" { "Polo" } else { "Who?" };
 
     // Prepare the response
     let resp = Response {
         req_id: event.context.request_id,
-        msg: format!("{} says {}", name, logic),
+        msg: format!("{} says {}", name, response),
     };
 
     // Return `Response` (it will be serialized to JSON automatically by the runtime)

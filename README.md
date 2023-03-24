@@ -1012,112 +1012,6 @@ pub async fn complete_prompt(prompt: &str) -> Result<String, Box<dyn std::error:
 3. push to ECR
 4. Tell AWS App Runner to autodeploy
 
-### Mixing Python and Rust
-
-#### Using Rust Module from Python
-
-* [Pyo3](https://pyo3.rs/v0.18.0/)
-Try the getting started guide:
-
-```bash
-# (replace string_sum with the desired package name)
-$ mkdir string_sum
-$ cd string_sum
-$ python -m venv .env
-$ source .env/bin/activate
-$ pip install maturin
-```
-
-* Run `maturin init` and then run `maturin develop` or `make develop`
-* `python`
-* Run the following python code
-```python
-import string_sum
-string_sum.sum_as_string(5, 20)
-```
-The output should look like this: `'25'`
-
-#### Using Python from Rust
-
-Follow guide here: [https://pyo3.rs/v0.18.0/](https://pyo3.rs/v0.18.0/)
-
-* install `sudo apt-get install python3-dev`
-* `cargo new pyrust` and `cd pyrust`
-* tweak `Cargo.toml` and add `pyo3`
-* add source code to `main.rs`
-* `make run`
-
-```bash
-Hello vscode, I'm Python 3.9.2 (default, Feb 28 2021, 17:03:44) 
-[GCC 10.2.1 20210110]
-```
-
-Q:  Does the target binary have Python included?
-A:  Maybe.  It does appear to be able to run Python if you go to the `target`
-`/workspaces/rust-mlops-template/pyrust/target/debug/pyrust`
-
-Follow up question, can I bring this binary to a "blank" codespace with no Python and what happens!
-
-#### Day2: Using Rust with Python
-
-Goal:  Build a high-performance Rust module and then wrap in a Python command-line tool
-
-
-### Containerized Rust Examples
-
-* `cargo new tyrscontainer` and cd into `tyrscontainer`
-* copy a `Makefile` and `Dockerfile` from `webdocker`
-
-
-Note that the rust build system container which is ~1GB is NOT in the final container image which is only 98MB.
-```Dockerfile
-FROM rust:latest as builder
-ENV APP tyrscontainer
-WORKDIR /usr/src/$APP
-COPY . .
-RUN cargo install --path .
- 
-FROM debian:buster-slim
-RUN apt-get update && rm -rf /var/lib/apt/lists/*
-COPY --from=builder /usr/local/cargo/bin/$APP /usr/local/bin/$APP
-#export this actix web service to port 8080 and 0.0.0.0
-EXPOSE 8080
-CMD ["tyrscontainer"]
-````
-
-
-The final container is very small i.e. 94MB
-```bash
-strings               latest    974d998c9c63   9 seconds ago   94.8MB
-```
-
-The end result is that you can easily test this web service and push to a cloud vendor like AWS and AWS App Runner.
-
-
-#### Open AI Raw HTTP Request Example
-
-Code here:  https://github.com/nogibjj/assimilate-openai/tree/main/rust-curl-openai
-
-```bash
-(.venv) @noahgift ➜ /workspaces/assimilate-openai/rust-curl-openai (main) $ cargo run
-   Compiling reqwest v0.11.14
-   Compiling rust-curl-openai v0.1.0 (/workspaces/assimilate-openai/rust-curl-openai)
-    Finished dev [unoptimized + debuginfo] target(s) in 4.78s
-     Running `target/debug/rust-curl-openai`
-{"id":"cmpl-6rDd8mzOtMx7kKobqV0isiC7TkqU4","object":"text_completion","created":1678141798,"model":"text-davinci-003","choices":[{"text":"\n\nJupiter is the fifth planet from the Sun and the biggest one in our Solar System. It is very bright and can be seen in the night sky. It is named after the Roman god Jupiter. It is usually the third brightest thing you can see in the night sky after the Moon and Venus.","index":0,"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":151,"completion_tokens":62,"total_tokens":213}}
-```
-
-#### GCP Cloud Run
-
-* Verified GCP Cloud Run works, code here:  https://github.com/nogibjj/rust-mlops-template/tree/main/webdocker 
-![Screenshot 2023-03-07 at 4 31 02 PM](https://user-images.githubusercontent.com/58792/223558711-efedd835-0ddf-4727-854c-1928bb0a57de.png)
-
-
-#### References
-
-* [Notes for Rust Docker Container](https://hub.docker.com/_/rust)
-
-
 ### Build System
 
 This build system is a bit unique because it recursives many Rust repos and tests them all!
@@ -1133,18 +1027,10 @@ This build system is a bit unique because it recursives many Rust repos and test
 * [Microsoft Learn Rust](https://learn.microsoft.com/en-us/training/paths/rust-first-steps/)
 * [Rust Machine Learning Book](https://github.com/rust-ml/book)
 
-### End to End Examples
-
-* [Rust micro-server for Text Summarization deployed via Kubernetes and Using Hugging Face Bindings](https://github.com/szheng3/rust-individual-project-2)
-
 ### MLOps/ML Engineering and Data Science
 
 * [best-of-ml-rust](https://github.com/e-tornike/best-of-ml-rust)
 * [Awesome-Rust-MachineLearning](https://github.com/vaaaaanquish/Awesome-Rust-MachineLearning)
-
-### Rust MLOps Platforms
-
-* [wallaroo.ai community install](https://docs.wallaroo.ai/wallaroo-operations-guide/wallaroo-install-guides/wallaroo-community-install-guides/wallaroo-community-install/wallaroo-community-install-guide/)
 
 ### Cloud Computing
 
@@ -1152,8 +1038,6 @@ This build system is a bit unique because it recursives many Rust repos and test
 
 * [Sustainability with Rust](https://aws.amazon.com/blogs/opensource/sustainability-with-rust/?pg=devrust)
 * [Rust AWS Lambda](https://github.com/awslabs/aws-lambda-rust-runtime)
-* [EFS + Lambda (Great Use Case for Rust](https://aws.amazon.com/blogs/compute/using-amazon-efs-for-aws-lambda-in-your-serverless-applications/)
-* [Rust uses less than half memory of Python AWS Lambda and 1.5 less duration in CPU](https://nogibjj.github.io/rust-tutorial/chapter_9.html)
 
 #### Azure
 
@@ -1173,16 +1057,11 @@ This build system is a bit unique because it recursives many Rust repos and test
 * [Rust Pytorch example](https://www.swiftdiaries.com/rust/pytorch/)
 * [Rust PyTorch with Actix-Web Example](https://github.com/kykosic/actix-pytorch-example)
 
-### Search Engines
-
-* [GitHub Search](https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search/)
-
 ### Web Microservices and Serverless
 
 * [Docker + Actix](https://github.com/patrick-fitzgerald/actix-web-docker-example)
 * [Actix](https://actix.rs/docs/application)
 * [AWS Lambda Rust](https://docs.aws.amazon.com/sdk-for-rust/latest/dg/lambda.html)
-* [Rust AWS Lambda Blog Post](https://dev.to/aws-builders/serverless-lambdas-with-rust-on-aws-hkh)
 
 ### Data Frames
 
@@ -1197,10 +1076,6 @@ One goal is to reduce using Notebooks in favor of lightweight markdown tools (i.
 * [Quarto](https://quarto.org/)
 * [Jupyter Rust](https://github.com/google/evcxr/blob/main/evcxr_jupyter/README.md)
 
-### Computer Vision
-
-* [Visualizing real world computer vision, powered by Rust](https://github.com/rerun-io)
-
 ### Linux Tools
 
 * [Great example of a cross-platform tool in Rust](https://github.com/GyulyVGC/sniffnet)
@@ -1211,7 +1086,6 @@ One goal is to reduce using Notebooks in favor of lightweight markdown tools (i.
 * [Pyo3 rust binding for Python](https://github.com/PyO3/pyo3)
 * [Inline Python in Rust](https://github.com/fusion-engineering/inline-python)
 * [Red Hat:  Speed up Python using Rust](https://developers.redhat.com/blog/2017/11/16/speed-python-using-rust#create_a_new_crate)
-* [Ruff 12-120X faster linting of Python code](https://notes.crmarsh.com/python-tooling-could-be-much-much-faster)
 
 ### GUI
 
@@ -1228,7 +1102,6 @@ One goal is to reduce using Notebooks in favor of lightweight markdown tools (i.
 * [onnxruntime for Rust](https://docs.rs/onnxruntime/latest/onnxruntime/)
 * [Build standalone executables with Rust and ONNX](https://github.com/sonos/tract)
 * [Hugging Face discussion on Rust](https://discuss.huggingface.co/t/rust-applications/23060)
-* [ort - ONNX Runtime Rust bindings](https://github.com/BloopAI/ort)
 
 ### Static Web
 
@@ -1245,14 +1118,6 @@ https://able.bio/haixuanTao/deep-learning-in-rust-with-gpu--26c53a7f
 * [Rust is 150x (15,000%) faster, and uses about the same amount of memory compared with Python.](https://www.secondstate.io/articles/performance-rust-wasm/#:~:text=%F0%9F%92%AF%20Performance%20advantages%20of%20Rust%20and%20WebAssembly,-%E2%80%A2%202%20minutes&text=Rust%20is%202x%20(200%25),of%20memory%20compared%20with%20Python.)
 * [Rust 26X faster than Python sklearn](https://www.lpalmieri.com/posts/2019-12-01-taking-ml-to-production-with-rust-a-25x-speedup/)
 * [150+ million users with Rust MLOPs](https://engg.glance.com/serving-ml-at-the-speed-of-rust-748c0ca82f22)
-* [all language benchmarks](https://bheisler.github.io/criterion.rs/book/criterion_rs.html)
-* [polars benchmark vs pandas and dask](https://www.pola.rs/benchmarks.html)
-* [Python vs Rust in AWS Lambda for a Data Guy](https://www.confessionsofadataguy.com/aws-lambdas-python-vs-rust-performance-and-cost-savings/)
-
-### Delta Lake
-
-* [Delta Lake Rust](https://github.com/delta-io/delta-rs)
-* [Saving 10X or more using Rust versus Spark talk](https://www.youtube.com/watch?v=do4jsxeKfd4&t=998s)
 
 ### Testing Tools
 
@@ -1268,6 +1133,10 @@ https://able.bio/haixuanTao/deep-learning-in-rust-with-gpu--26c53a7f
 
 * [Awesome Embedded Rust](https://github.com/rust-embedded/awesome-embedded-rust)
 
+### benchmark
+
+https://bheisler.github.io/criterion.rs/book/criterion_rs.html
+
 ### ZSH
 
 * [Rust ZSH modules](https://github.com/Diegovsky/zsh-module-rs)
@@ -1277,31 +1146,6 @@ https://able.bio/haixuanTao/deep-learning-in-rust-with-gpu--26c53a7f
 * [influxdb-rust](https://github.com/influxdb-rs/influxdb-rust)
 * [Time Series Polars Rust](https://stackoverflow.com/questions/74668242/resample-time-series-using-polars-in-rust)
 
-### Linux and GCC
-
-* [GNU GCC and Rust](https://thenewstack.io/rust-support-is-being-built-into-the-gnu-gcc-compiler/)
-
-### GTP4 Code Search
-
-* [Bloop AI-GTP4 Code Search ](https://github.com/BloopAI/bloop)
-
-### C++ vs Rust
-
-* [C++ vs Rust](https://www.risingwave-labs.com/blog/building-a-cloud-database-from-scratch-why-we-moved-from-cpp-to-rust/)
-
 ### OpenAI
 
 * [OpenAI Rust Example](https://github.com/deontologician/openai-api-rust)
-
-### Popularity
-
-* [rust worlds fastest growing language](https://www.technologyreview.com/2023/02/14/1067869/rust-worlds-fastest-growing-programming-language/)
-
-### Copilots effect on Programming
-
-* [End of programming?](https://thenewstack.io/coding-sucks-anyway-matt-welsh-on-the-end-of-programming/) *I believe instead of end of coding it means level up*
-
-### Rewrite Python to Rust
-
-* [Oxidizing bmap-tools: rewriting a Python project in Rust](https://www.collabora.com/news-and-blog/blog/2023/03/03/oxidizing-bmap-tools-rewriting-a-python-project-in-rust/)
-* [Oxidizing](https://wiki.mozilla.org/Oxidation)
