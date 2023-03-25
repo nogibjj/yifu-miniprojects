@@ -2,19 +2,17 @@
 [![Rust CI/CD Pipeline](https://github.com/noahgift/rust-mlops-template/actions/workflows/rust.yml/badge.svg)](https://github.com/noahgift/rust-mlops-template/actions/workflows/rust.yml)
 
 # rust-mlops-template
+
 A work in progress to build out solutions in Rust for MLOPs.
 This repo is more of a cookbook style.  For a more gentle step by step guide to MLOps with Rust, please see my [lecture notes as a Rust MDBook here](https://nogibjj.github.io/rust-tutorial/).
 
-
-
 ![8-3-modern-rust-development](https://user-images.githubusercontent.com/58792/211929407-633fddb8-8f44-4d30-861c-30aaa7b481e3.png)
-
 
 ## Demo Hitlist (Will Solve hopefully almost every day/weekly)
 
 * Do an [inline python example](https://github.com/fusion-engineering/inline-python)
-* Train a model in PyTorch with CPU:  https://github.com/LaurentMazare/tch-rs
-* Train a model in PyTorch with GPU: https://github.com/LaurentMazare/tch-rs
+* Train a model in PyTorch with CPU:  <https://github.com/LaurentMazare/tch-rs>
+* Train a model in PyTorch with GPU: <https://github.com/LaurentMazare/tch-rs>
 * Serve out ONNX with a Rust web framework like Actix
 * ONNX Command-Line Tool
 * Simple async network example: (network discovery or chat system)
@@ -40,13 +38,13 @@ This repo is more of a cookbook style.  For a more gentle step by step guide to 
 
 One of the key goals of this project is to determine workflows that do not involve the #jcpennys (Jupyter, Conda, Pandas, Numpy, Sklearn) stack for #mlops. In particular I am not a fan of the conda installation tool (it is superfluous as [I demonstrate in the Python MLOps Template](https://github.com/nogibjj/mlops-template)) vs containerized workflows that use the Python Standard Library (Docker + pip + virtualenv) and this is a good excuse to find other solutions outside of that stack.  For example:
 
-  * Why not also find a more performant Data Frame library, faster speed, etc.
-  * Why not have a compiler?
-  * Why not have a simple packaging solution?
-  * Why not have a very fast computational speed?
-  * Why not be able to write both for the Linux Kernel and general purpose scripting?
-  * Why not see if there is a better solution than Python (which is essentially two languages scientific python and regular Python)?
-  * Python is one of the least green languages in terms of energy efficiency, but [Rust is one of the best](https://greenlab.di.uminho.pt/wp-content/uploads/2017/10/sleFinal.pdf).
+* Why not also find a more performant Data Frame library, faster speed, etc.
+* Why not have a compiler?
+* Why not have a simple packaging solution?
+* Why not have a very fast computational speed?
+* Why not be able to write both for the Linux Kernel and general purpose scripting?
+* Why not see if there is a better solution than Python (which is essentially two languages scientific python and regular Python)?
+* Python is one of the least green languages in terms of energy efficiency, but [Rust is one of the best](https://greenlab.di.uminho.pt/wp-content/uploads/2017/10/sleFinal.pdf).
 
 ### In The Beginning Was the Command-Line
 
@@ -56,8 +54,8 @@ What could #mlops and #datascience look like in 2023 without #jupyternotebook an
 
 ### Using Data (i.e. Data Science)
 
-* StackOverflow https://survey.stackoverflow.co/2022/#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages[states that #rust is on 7th year as the most loved language 87% of developers want to continue developing](https://survey.stackoverflow.co/2022/#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages) in and ties with Python as the most wanted technology.  Clearly there is traction.
-* According to http://www.modulecounts.com/[Modulecounts] it looks like an exponential growth curve to Rust.
+* StackOverflow <https://survey.stackoverflow.co/2022/#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages[states> that #rust is on 7th year as the most loved language 87% of developers want to continue developing](https://survey.stackoverflow.co/2022/#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages) in and ties with Python as the most wanted technology.  Clearly there is traction.
+* According to <http://www.modulecounts.com/[Modulecounts>] it looks like an exponential growth curve to Rust.
 ![Python vs Ruby vs Rust](https://user-images.githubusercontent.com/58792/209174014-cb3d7370-d8a2-4298-847b-f1e9f9f29a69.png)
 
 ## Getting Started
@@ -84,12 +82,12 @@ You can see there several tools which help you get things done in Rust:
 
 ```Makefile
 rust-version:
-	@echo "Rust command-line utility versions:"
-	rustc --version 			#rust compiler
-	cargo --version 			#rust package manager
-	rustfmt --version			#rust code formatter
-	rustup --version			#rust toolchain manager
-	clippy-driver --version		#rust linter
+ @echo "Rust command-line utility versions:"
+ rustc --version    #rust compiler
+ cargo --version    #rust package manager
+ rustfmt --version   #rust code formatter
+ rustup --version   #rust toolchain manager
+ clippy-driver --version  #rust linter
 ```
 
 ### Hello World Setup
@@ -97,6 +95,7 @@ rust-version:
 This is an intentionally simple full end-to-end hello world example.  I used some excellent ideas from @kyclark, author of the command-line-rust book from O'Reilly [here](https://github.com/kyclark/command-line-rust/tree/master/01_hello).  You can recreate on your own following these steps
 
 Create a project directory
+
 * `cargo new hello`
 
 This creates a structure you can see with `tree hello`
@@ -181,7 +180,6 @@ Change into `MarcoPolo` directory and run `cargo run -- play --name Marco` and y
 Polo
 ```
 
-
 ### First Big Project:  Deduplication Command-Line Tool
 
 I have written command-line deduplication tools in many languages so this is what I choose to build a substantial example. The general approach I use is as follows:  
@@ -192,9 +190,8 @@ I have written command-line deduplication tools in many languages so this is wha
 *Getting Started*
 
 * Create new project: `crate new dedupe`
-* Check latest clap version: https://crates.io/crates/clap and put this version in the `Cargo.toml`
+* Check latest clap version: <https://crates.io/crates/clap> and put this version in the `Cargo.toml`
 The file should look similar to this.
-
 
 ```toml
 [package]
@@ -215,16 +212,16 @@ assert_cmd = "2"
 
 ```Makefile
 format:
-	cargo fmt --quiet
+ cargo fmt --quiet
 
 lint:
-	cargo clippy --quiet
+ cargo clippy --quiet
 
 test:
-	cargo test --quiet
+ cargo test --quiet
 
 run:
-	cargo run --quiet
+ cargo run --quiet
 
 all: format lint test run
 ```
@@ -263,7 +260,7 @@ Next things to complete for dedupe (in another repo):
 * Summarize News CLI
 * Microservice Web Framework, trying [actix](https://actix.rs/) to start, that has a calculator API
 * Microservice Web Framework deploys pre-trained model
-* Descriptive Statistics on a well known dataset using https://www.pola.rs/[Polars] inside a CLI
+* Descriptive Statistics on a well known dataset using <https://www.pola.rs/[Polars>] inside a CLI
 * Train a model with PyTorch (probably via [bindings to Rust](https://github.com/LaurentMazare/tch-rs))
 
 ### Actix Microservice
@@ -371,16 +368,16 @@ Next, use a `Makefile` to ensure a simple workflow
 
 ```Makefile
 format:
-	cargo fmt --quiet
+ cargo fmt --quiet
 
 lint:
-	cargo clippy --quiet
+ cargo clippy --quiet
 
 test:
-	cargo test --quiet
+ cargo test --quiet
 
 run:
-	cargo run 
+ cargo run 
 
 all: format lint test run
 
@@ -429,16 +426,15 @@ cd into `hfqa` and run `cargo run`
 cargo run --quiet -- answer --question "What is the best book from 1880 to read?" --context "The Adventures of Huckleberry Finn was released in 1880"
 Answer: The Adventures of Huckleberry Finn
 ```
-<img width="928" alt="Screenshot 2023-01-07 at 8 52 35 AM" src="https://user-images.githubusercontent.com/58792/211154766-e1061c96-7116-4f23-b5ce-79e4740c4cb8.png">
 
+<img width="928" alt="Screenshot 2023-01-07 at 8 52 35 AM" src="https://user-images.githubusercontent.com/58792/211154766-e1061c96-7116-4f23-b5ce-79e4740c4cb8.png">
 
 ### Hugging Face Lyrics Analysis using Zero Shot Classification with SQLite
 
 ![hugging-face](https://user-images.githubusercontent.com/58792/215151354-30cadb7d-c972-479d-afc7-030bd684d4d2.png)
 
-
-
 ![Screenshot 2023-01-08 at 4 26 54 PM](https://user-images.githubusercontent.com/58792/211220043-747b0146-e1b5-4ce7-b713-04e145822dd3.png)
+
 * [Listen to Maná - En El Muelle De San Blás](https://www.youtube.com/watch?v=teprNzF6J1I)
 
 ```
@@ -452,6 +448,7 @@ latin: 0.6906086802482605
 ```
 
 Print the lyrics:
+
 ```bash
 cargo run --quiet -- lyrics | less | head
 ```
@@ -475,8 +472,8 @@ Full working example here: [https://github.com/nogibjj/rust-pytorch-gpu-template
 
 ![building-gpu-translator-hugging-face](https://user-images.githubusercontent.com/58792/215615054-8a8d6b4b-2967-4daa-bf78-9554593f0015.png)
 
-
 Goal:  Translate a spanish song to english
+
 * `cargo new translate` and cd into it
 fully working GPU Hugging Face Translation CLI in Rust
 
@@ -523,9 +520,6 @@ pub fn translate_file(path: String) -> anyhow::Result<()> {
 }
 ```
 
-
-
-
 ### Polars Example
 
 * [Example here](https://github.com/noahgift/rust-mlops-template/tree/main/polarsdf)
@@ -537,7 +531,6 @@ cargo run -- sort --rows 10
 ```
 
 ![Screenshot 2023-01-14 at 12 21 08 PM](https://user-images.githubusercontent.com/58792/212486612-acf4040e-1772-4dbd-98d8-4ed0aaf24b96.png)
-
 
 You can see an example of how Polars can be used to sort a dataframe in a Rust cli program.  
 
@@ -566,8 +559,8 @@ pub fn checksum(files: Vec<String>) -> Result<HashMap<String, Vec<String>>, Box<
 
 ```
 
-
 cargo --quiet run -- serial
+
 ```bash
 ➜  parallel git:(main) ✗ time cargo --quiet run -- serial
 Serial version of the program
@@ -586,7 +579,7 @@ b39d1840d7beacfece35d9b45652eee1:
         src/data/utils_four-score4.m4a
         src/data/utils_four-score.m4a
 cargo --quiet run -- serial  0.57s user 0.02s system 81% cpu 0.729 total
-``` 
+```
 
 vs threads
 
@@ -609,6 +602,7 @@ b39d1840d7beacfece35d9b45652eee1:
         src/data/subdir/utils_four-score5.m4a
 cargo --quiet run -- parallel  0.65s user 0.04s system 262% cpu 0.262 total
 ```
+
 Ok, so let's look at the code:
 
 ```rust
@@ -638,7 +632,6 @@ cd into `clilog` and type: `cargo run -- --level TRACE`
 
 <img width="933" alt="Screenshot 2023-01-02 at 8 58 38 AM" src="https://user-images.githubusercontent.com/58792/210241347-a055a3d8-0dc7-4a68-ae2a-71195e91c63e.png">
 
-
 ```bash
 //function returns a random fruit and logs it to the console
 pub fn random_fruit() -> String {
@@ -652,7 +645,6 @@ pub fn random_fruit() -> String {
 }
 ```
 
-
 ### AWS
 
 ### Rust AWS S3 Bucket Metadata Information
@@ -663,14 +655,13 @@ Running an optimized version was able to sum all the objects in my AWS Account a
 
 ![bucket summarizer](https://user-images.githubusercontent.com/58792/209720447-ebabb46f-3047-47f9-a96e-cccee0cd22f7.png)
 
-
 ### Rust AWS Lambda
 
 cd into `rust-aws-lambda`
 
 * [Rust AWS Lambda docs](https://docs.aws.amazon.com/sdk-for-rust/latest/dg/lambda.html)
 * Install AWS VS Code plugin and configure it to use your AWS account.
-* See GitHub repo here: https://github.com/awslabs/aws-lambda-rust-runtime#deployment
+* See GitHub repo here: <https://github.com/awslabs/aws-lambda-rust-runtime#deployment>
 
 ![Screenshot 2023-01-22 at 6 14 48 PM](https://user-images.githubusercontent.com/58792/213945722-cff92b84-0ac2-4c29-bb77-bef142c4257d.png)
 
@@ -687,6 +678,7 @@ cargo lambda invoke --remote \
 ```
 
 Result:
+
 ```bash
 cargo lambda invoke --remote \
                 --data-ascii '{"command": "hi"}' \
@@ -698,12 +690,9 @@ cargo lambda invoke --remote \
 }
 ```
 
-
-
-
 ### Client-Server Example
 
-Example lives here:  https://github.com/noahgift/rust-mlops-template/tree/main/rrgame
+Example lives here:  <https://github.com/noahgift/rust-mlops-template/tree/main/rrgame>
 
 #### Current Status
 
@@ -715,7 +704,7 @@ Example lives here:  https://github.com/noahgift/rust-mlops-template/tree/main/r
 <img width="822" alt="Screenshot 2022-12-27 at 7 57 24 PM" src="https://user-images.githubusercontent.com/58792/209741364-3fcdef36-7dbc-4252-b34a-fb356152554a.png">
 <img width="822" alt="Screenshot 2022-12-27 at 7 57 24 PM" src="https://user-images.githubusercontent.com/58792/209741584-d96ebc91-00a8-4f7d-8fca-9f565318aa9f.png">
 
-A bigger example lives here:  https://github.com/noahgift/rust-multiplayer-roulette-game
+A bigger example lives here:  <https://github.com/noahgift/rust-multiplayer-roulette-game>
 
 ### Containerized Rust Applications
 
@@ -738,7 +727,6 @@ ENTRYPOINT [ "/usr/local/bin/containerized_marco_polo_cli" ]
 
 cd into: `pytorch-rust-docker`
 
-
 Here is the `Dockerfile`
 
 ```
@@ -755,9 +743,7 @@ RUN cargo build -j 6
 * `docker run -it pytorch-rust-docker`
 * Next inside the container run: `cargo run -- resnet18.ot Walking_tiger_female.jpg`
 
-
 <img width="1040" alt="Screenshot 2023-01-05 at 10 12 29 AM" src="https://user-images.githubusercontent.com/58792/210814241-e86f87d4-9cb9-4ab6-90a9-5d5ddd3e545d.png">
-
 
 ### Tensorflow Rust Bindings
 
@@ -791,11 +777,10 @@ fn main() {
 ```
 
 ### PyTorch
+
 <img width="1321" alt="Screenshot 2023-01-03 at 9 45 52 AM" src="https://user-images.githubusercontent.com/58792/210380648-0a7382f9-2d6e-4fb5-92b6-ff2a43b1e10c.png">
 
-
 Pre-trained model:  cd into `pytorch-rust-example` then run:  `cargo run -- resnet18.ot Walking_tiger_female.jpg`
-
 
 ### PyTorch Binary with embedded pre-trained model
 
@@ -819,8 +804,6 @@ tabby, tabby cat                                    0.03%
 
 ![Screenshot 2023-01-22 at 4 25 48 PM](https://user-images.githubusercontent.com/58792/213941368-17ab05f3-0bca-470d-87e8-b7b6fb6d7070.png)
 
-
-
 ### Web Assembly in Rust
 
 Cd into `hello-wasm-bindgen` and run `make install` the `make serve`
@@ -828,8 +811,6 @@ Cd into `hello-wasm-bindgen` and run `make install` the `make serve`
 You should see something like this:
 
 ![Screenshot 2023-01-09 at 11 42 29 AM](https://user-images.githubusercontent.com/58792/211361416-3203edf5-fdb6-4b13-91b8-9313d6aaf7bd.png)
-
-
 
 ```bash
 /* hello world Rust webassembly*/
@@ -859,6 +840,7 @@ pub fn marco_polo(s: &str) {
 cd into `linfa-kmeans` and run `cargo run -- cluster`
 
 ### Lasso Regression CLI
+
 ![Screenshot 2023-01-15 at 9 53 25 AM](https://user-images.githubusercontent.com/58792/212548501-51993174-c294-4d8e-91b1-5f795de903a1.png)
 
 ```bash
@@ -874,20 +856,19 @@ predicted variance: -0.014761955865436382
 
 ### Transcription with Whisper in Rust
 
-* Based on this https://github.com/ggerganov/whisper.cpp[CPP version]
-* Rust bindings here:  https://github.com/tazz4843/whisper-rs
+* Based on this <https://github.com/ggerganov/whisper.cpp[CPP> version]
+* Rust bindings here:  <https://github.com/tazz4843/whisper-rs>
 
 ![Screenshot 2023-01-15 at 4 23 02 PM](https://user-images.githubusercontent.com/58792/212568247-45666de9-fb80-4120-8950-42a751eff258.png)
 
-
 ### Rust PyTorch Saturating GPU
 
-* Example repo here:  https://github.com/nogibjj/rust-pytorch-gpu-template/blob/main/README.md#pytorch-rust-gpu-example
+* Example repo here:  <https://github.com/nogibjj/rust-pytorch-gpu-template/blob/main/README.md#pytorch-rust-gpu-example>
 ![Screenshot 2023-01-16 at 5 23 15 PM](https://user-images.githubusercontent.com/58792/212774485-af74b43e-7514-46cd-a575-5cea1ccfb45f.png)
 
 ### Rust PyTorch MNIST Saturating GPU
 
-* Example repo here: https://github.com/nogibjj/rust-pytorch-gpu-template/blob/main/README.md#mnist-convolutional-neural-network
+* Example repo here: <https://github.com/nogibjj/rust-pytorch-gpu-template/blob/main/README.md#mnist-convolutional-neural-network>
 ![Screenshot 2023-01-16 at 5 57 59 PM](https://user-images.githubusercontent.com/58792/212777601-2a2acb71-c94b-4d76-8913-702fb429bb13.png)
 
 ### Rayon Multi-threaded GPU Stress Test CLI
@@ -901,18 +882,16 @@ Stress Test CLI for both CPU and GPU PyTorch using Clap
 * To monitor GPU run `nvidia-smi -l 1`
 * To use threaded GPU load test use: `cargo run -- tgpu`
 
-
 ![stress-test-cuda-gpu-with-pytorch-rust](https://user-images.githubusercontent.com/58792/215621711-c222e59b-f4e1-4fd0-8202-339b986b4090.png)
-
 
 Full working example here: [https://github.com/nogibjj/rust-pytorch-gpu-template/tree/main/stress](https://github.com/nogibjj/rust-pytorch-gpu-template/tree/main/stress)
 
 ### Rust Stable Diffusion Demo
 
-You can create it this repo for more info: https://github.com/nogibjj/rust-pytorch-gpu-template#stable-diffusion-demo
+You can create it this repo for more info: <https://github.com/nogibjj/rust-pytorch-gpu-template#stable-diffusion-demo>
 
-* clone this repo:  https://github.com/LaurentMazare/diffusers-rs
-* Follow these setup instructions: https://github.com/LaurentMazare/diffusers-rs#clip-encoding-weights
+* clone this repo:  <https://github.com/LaurentMazare/diffusers-rs>
+* Follow these setup instructions: <https://github.com/LaurentMazare/diffusers-rs#clip-encoding-weights>
 
 After all the weights are downloaded run:
 
@@ -924,7 +903,6 @@ Stable Diffusion 2.1 Pegging GPU
 
 Rusty Robot Torching Notebooks
 ![sd_final](https://user-images.githubusercontent.com/58792/212926379-d460a54c-29cf-42bb-801a-29e50557369e.png)
-
 
 ### Randomly Select Rust Crates To Work On
 
@@ -949,7 +927,7 @@ cd into `OnnxDemo` and run `make install` then `cargo run -- infer` which invoke
 
 #### Sonos ONNX
 
-Verified this works and is able to invoke runtime in a portable binary: 
+Verified this works and is able to invoke runtime in a portable binary:
 [https://github.com/sonos/tract/tree/main/examples/pytorch-resnet](https://github.com/sonos/tract/tree/main/examples/pytorch-resnet)
 
 ### OpenAI
@@ -959,7 +937,7 @@ Verified this works and is able to invoke runtime in a portable binary:
 Full working example link: [https://github.com/nogibjj/assimilate-openai/tree/main/openai](https://github.com/nogibjj/assimilate-openai/tree/main/openai)
 
 * install Rust via Rustup: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-Use Rust API for OpenAI (3rd party):  https://github.com/deontologician/openai-api-rust
+Use Rust API for OpenAI (3rd party):  <https://github.com/deontologician/openai-api-rust>
 
 * Create new project: `cargo new openai` and cd into it
 * `make format` then `make lint` then `cargo run`
@@ -976,6 +954,7 @@ The rain in spain
 ```
 
 `lib.rs`
+
 ```rust
 /*This uses Open AI to Complete Sentences */
 
@@ -992,16 +971,13 @@ pub async fn complete_prompt(prompt: &str) -> Result<String, Box<dyn std::error:
 
 ### Command-line Data Science with Rust (Action Items)
 
-
 1. go into `dscli`
 2. Figure the way to make Polars work with `linfa`
 3. How can I make a kmeans cluster using Polars
 
-
 ### Containerized Actix Continuous Delivery to AWS App Runner
 
 ![Screenshot 2023-01-31 at 1 47 32 PM](https://user-images.githubusercontent.com/58792/215854389-e9f5fc50-1607-4b4d-9d82-180f81c44c01.png)
-
 
 1. cd into `webdocker`
 2. build and run container (can do via `Makefile`) or
@@ -1067,7 +1043,6 @@ This build system is a bit unique because it recursives many Rust repos and test
 
 * [Polars](https://www.pola.rs/).  You can see an [example here](https://github.com/noahgift/rust-mlops-template/tree/main/polarsdf).
 
-
 ### Authoring Tools
 
 One goal is to reduce using Notebooks in favor of lightweight markdown tools (i.e. the goal is MLOps vs interactive notebooks)
@@ -1114,7 +1089,7 @@ One goal is to reduce using Notebooks in favor of lightweight markdown tools (i.
 ### Benchmarking
 
 * [Python vs Rust](https://programming-language-benchmarks.vercel.app/python-vs-rust)
-https://able.bio/haixuanTao/deep-learning-in-rust-with-gpu--26c53a7f
+<https://able.bio/haixuanTao/deep-learning-in-rust-with-gpu--26c53a7f>
 * [Rust is 150x (15,000%) faster, and uses about the same amount of memory compared with Python.](https://www.secondstate.io/articles/performance-rust-wasm/#:~:text=%F0%9F%92%AF%20Performance%20advantages%20of%20Rust%20and%20WebAssembly,-%E2%80%A2%202%20minutes&text=Rust%20is%202x%20(200%25),of%20memory%20compared%20with%20Python.)
 * [Rust 26X faster than Python sklearn](https://www.lpalmieri.com/posts/2019-12-01-taking-ml-to-production-with-rust-a-25x-speedup/)
 * [150+ million users with Rust MLOPs](https://engg.glance.com/serving-ml-at-the-speed-of-rust-748c0ca82f22)
@@ -1135,7 +1110,7 @@ https://able.bio/haixuanTao/deep-learning-in-rust-with-gpu--26c53a7f
 
 ### benchmark
 
-https://bheisler.github.io/criterion.rs/book/criterion_rs.html
+<https://bheisler.github.io/criterion.rs/book/criterion_rs.html>
 
 ### ZSH
 
