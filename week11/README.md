@@ -10,7 +10,6 @@ Once you have Rust installed, you can clone this repository and run the followin
 
 `cargo run`
 
-
 ## How to Play
 
 The game starts by initializing variables for the score, time remaining, start time, and leaderboard. It then prints a welcome message and loops through each question. For each question, it shuffles the options randomly and prints them out. It then reads in the user's answer and compares it to the correct answer. If the user's answer is correct, it adds the number of points for that question to the score. After all questions have been answered, it prints out the final score.
