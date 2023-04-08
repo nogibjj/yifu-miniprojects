@@ -1,15 +1,22 @@
-# Rust Quiz Game
+# Quiz Game
 
-This Rust code is a simple quiz game that asks three questions and allows the user to answer them. The questions are stored in an array of `Question` structs. Each `Question` struct has a `prompt`, an array of `options`, an `answer`, and a number of `points`.
+This is a simple quiz game written in Rust. The game reads questions from a file and presents them to the user. The user has 60 seconds to answer as many questions as possible. The game keeps track of the user's score and displays a leaderboard at the end.
 
-## Getting Started
+## Usage
 
-To get started with this project, you'll need to have Rust installed on your machine. You can download Rust from the official website [here](https://www.rust-lang.org/tools/install).
-
-Once you have Rust installed, you can clone this repository and run the following command to start the game:
+To run the game, simply execute the following command:
 
 `cargo run`
 
-## How to Play
+## Questions
 
-The game starts by initializing variables for the score, time remaining, start time, and leaderboard. It then prints a welcome message and loops through each question. For each question, it shuffles the options randomly and prints them out. It then reads in the user's answer and compares it to the correct answer. If the user's answer is correct, it adds the number of points for that question to the score. After all questions have been answered, it prints out the final score.
+The questions are stored in a file called `questions.txt`. Each line of the file represents a single question and has the following format:
+
+prompt,option1,option2,option3,option4,answer,points
+
+
+- `prompt`: The text of the question.
+- `option1`-`option4`: The possible answers to the question.
+- `answer`: The index of the correct answer (1-4).
+- `points`: The number of points awarded for a correct answer.
+

@@ -1,6 +1,7 @@
 use rand::seq::SliceRandom;
 use std::collections::HashMap;
-use std::io;
+use std::fs::File;
+use std::io::{self, BufRead, BufReader};
 use std::time::{Duration, Instant};
 
 struct Question {
@@ -10,39 +11,31 @@ struct Question {
     points: u32,
 }
 
-fn main() {
-    let questions = [
-        Question {
-            prompt: String::from("What is the capital of France?"),
-            options: vec![
-                String::from("London"),
-                String::from("Paris"),
-                String::from("Berlin"),
-            ],
-            answer: 1,
-            points: 10,
-        },
-        Question {
-            prompt: String::from("What is the highest mountain in the world?"),
-            options: vec![
-                String::from("K2"),
-                String::from("Mount Everest"),
-                String::from("Makalu"),
-            ],
-            answer: 1,
-            points: 10,
-        },
-        Question {
-            prompt: String::from("Who invented the telephone?"),
-            options: vec![
-                String::from("Alexander Graham Bell"),
-                String::from("Thomas Edison"),
-                String::from("Nikola Tesla"),
-            ],
-            answer: 0,
-            points: 10,
-        },
-    ];
+fn main() -> io::Result<()> {
+    let mut questions: Vec<Question> = vec![];
+    let file = File::open("questions.txt")?;
+    let reader = BufReader::new(file);
+
+    // Read questions from the file
+    for line in reader.lines() {
+        let line = line?;
+        let parts: Vec<&str> = line.split(',').collect();
+        let prompt = parts[0].to_string();
+        let options = parts[1..=4].iter().map(|s| s.to_string()).collect();
+        let answer = parts[5].parse::<usize>().expect("Invalid answer");
+        let points = parts[6].parse::<u32>().expect("Invalid points");
+        let question = Question {
+            prompt,
+            options,
+            answer,
+            points,
+        };
+        questions.push(question);
+    }
+
+    // Shuffle the questions randomly
+    let mut rng = rand::thread_rng();
+    questions.shuffle(&mut rng);
 
     let mut score = 0;
     let mut time_remaining = Duration::from_secs(60);
@@ -51,12 +44,12 @@ fn main() {
 
     println!("Welcome to the Quiz Game!");
 
-    for question in &questions {
+    for question in &questions[0..5] {
         println!("{}", question.prompt);
 
         // Shuffle the options randomly
         let mut shuffled_options = question.options.clone();
-        shuffled_options.shuffle(&mut rand::thread_rng());
+        shuffled_options.shuffle(&mut rng);
 
         for (i, option) in shuffled_options.iter().enumerate() {
             println!("{}: {}", i + 1, option);
@@ -108,15 +101,12 @@ fn main() {
             } else {
                 println!(
                     "Your score of {} points is not higher than your previous high score of {} points.",
-                    score, existing_score
+                    score,
+                    existing_score
                 );
             }
         } else {
             leaderboard.insert(name, score);
-            println!(
-                "Congratulations, you have a new high score of {} points!",
-                score
-            );
         }
     }
 
@@ -124,4 +114,6 @@ fn main() {
     for (name, score) in &leaderboard {
         println!("{}: {}", name, score);
     }
+
+    Ok(())
 }

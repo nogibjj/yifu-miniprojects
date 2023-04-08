@@ -1,0 +1,68 @@
+What is the capital of France?,Paris,London,Berlin,Madrid,1,10
+What is the largest planet in the solar system?,Jupiter,Mars,Venus,Mercury,1,20
+Who painted the Mona Lisa?,Leonardo da Vinci,Pablo Picasso,Vincent van Gogh,Salvador Dalí,1,15
+What is the largest country in the world?,Russia,Canada,China,United States,1,10
+What is the capital of Spain?,Madrid,Barcelona,Seville,Bilbao,1,10
+What is the capital of Italy?,Rome,Milan,Palermo,Naples,1,10
+What is the capital of Germany?,Berlin,Hamburg,Munich,Cologne,1,10
+What is the capital of the United Kingdom?,London,Birmingham,Manchester,Leeds,1,10
+What is the capital of the United States?,Washington,New York,Los Angeles,Chicago,1,10
+What is the capital of China?,Beijing,Shanghai,Tianjin,Guangzhou,1,10
+What is the capital of Japan?,Tokyo,Yokohama,Kyoto,Sapporo,1,10
+What is the capital of India?,New Delhi,Mumbai,Bangalore,Hyderabad,1,10
+What is the capital of Brazil?,Brasília,São Paulo,Rio de Janeiro,Salvador,1,10
+What is the capital of Mexico?,Mexico City,Guadalajara,Monterrey,Puebla,1,10
+What is the capital of Argentina?,Buenos Aires,Córdoba,La Plata,Mendoza,1,10
+What is the capital of Colombia?,Bogotá,Cali,Medellín,Barranquilla,1,10
+What is the capital of Venezuela?,Caracas,Maracaibo,Valencia,Barquisimeto,1,10
+What is the tallest mountain in the world?,Mount Everest,K2,Kangchenjunga,Lhotse,1,20
+What is the smallest country in the world by land area?,Vatican City,Monaco,Nauru,Tuvalu,1,15
+What is the largest ocean in the world?,Pacific Ocean,Atlantic Ocean,Indian Ocean,Arctic Ocean,1,10
+What is the highest waterfall in the world?,Angel Falls,Tugela Falls,Victoria Falls,Iguazu Falls,1,20
+What is the largest desert in the world?,Sahara Desert,Gobi Desert,Kalahari Desert,Arabian Desert,1,15
+What is the fastest land animal in the world?,Cheetah,Lion,Leopard,Hyena,1,10
+What is the most spoken language in the world?,Mandarin Chinese,English,Hindi,Spanish,1,15
+What is the currency of Japan?,Japanese yen,Korean won,Chinese yuan,Russian ruble,1,10
+What is the national animal of Australia?,Kangaroo,Koala,Platypus,Emu,1,10
+What is the largest city in Canada by population?,Toronto,Montreal,Vancouver,Calgary,1,15
+What is the national bird of the United States?,Bald Eagle,American Robin,Wild Turkey,Red-tailed Hawk,1,10
+What is the currency of Brazil?,Brazilian real,Argentine peso,Colombian peso,Mexican peso,1,10
+What is the national animal of India?,Bengal Tiger,Indian Elephant,Indian Rhino,Indian Peafowl,1,10
+What is the largest waterfall in North America?,Niagara Falls,Angel Falls,Victoria Falls,Iguazu Falls,1,20
+What is the national flower of Japan?,Cherry Blossom,Chrysanthemum,Plum Blossom,Iris,1,15
+What is the highest mountain in North America?,Denali/Mount McKinley,Mount Logan,Mount Saint Elias,Mount Waddington,1,20
+What is the largest lake in Africa by volume?,Lake Victoria,Lake Tanganyika,Lake Malawi,Lake Chad,1,20
+What is the national animal of Canada?,Beaver,Caribou,Moose,Grizzly Bear,1,10
+What is the smallest unit of digital information?,Bit,Byte,Kilobyte,Gigabyte,1,10
+Who is the author of the Harry Potter series?,J.K. Rowling,Stephenie Meyer,George R.R. Martin,John Grisham,1,15
+What is the smallest planet in our solar system?,Mercury,Mars,Venus,Earth,1,10
+Who wrote the novel "To Kill a Mockingbird"?,Harper Lee,Ernest Hemingway,William Faulkner,Toni Morrison,1,15
+What is the name of the largest ocean on Earth?,Pacific,Atlantic,Indian,Arctic,1,10
+What is the chemical symbol for gold?,Au,Ag,Cu,Fe,1,10
+What is the largest organ in the human body?,Skin,Liver,Heart,Lungs,1,15
+What is the name of the first man to walk on the moon?,Neil Armstrong,Buzz Aldrin,Michael Collins,Alan Shepard,1,15
+What is the name of the famous Italian astronomer who was the first to use a telescope to observe the sky?,Galileo Galilei,Isaac Newton,Albert Einstein,Stephen Hawking,1,20
+What is the chemical formula for water?,H2O,CO2,NaCl,CH4,1,10
+Who is the director of the movie "The Shawshank Redemption"?,Frank Darabont,Steven Spielberg,Quentin Tarantino,Martin Scorsese,1,15
+What is the name of the famous American inventor who invented the light bulb?,Thomas Edison,Alexander Graham Bell,Nikola Tesla,Albert Einstein,1,20
+What is the name of the highest mountain in the world?,Mount Everest,K2,Kilimanjaro,Denali,1,15
+Who is the author of "The Great Gatsby"?,F. Scott Fitzgerald,Ernest Hemingway,William Faulkner,John Steinbeck,1,15
+What is the name of the famous physicist who developed the theory of relativity?,Albert Einstein,Niels Bohr,Isaac Newton,Galileo Galilei,1,20
+What is the name of the first artificial satellite launched into space?,Sputnik 1,Vanguard 1,Explorer 1,Telstar 1,1,20
+What is the name of the famous painting by Leonardo da Vinci that depicts a woman with a mysterious smile?,Mona Lisa,The Last Supper,The Vitruvian Man,Annunciation,1,15
+Who is the founder of Microsoft?,Bill Gates,Steve Jobs,Mark Zuckerberg,Jeff Bezos,1,15
+What is the currency used in Japan?,Japanese yen,US dollar,Euro,British pound,1,10
+Who wrote the book "The Catcher in the Rye"?,J.D. Salinger,Ernest Hemingway,F. Scott Fitzgerald,William Faulkner,1,15
+What is the name of the famous American civil rights leader who delivered the "I Have a Dream" speech?,Martin Luther King Jr.,Malcolm X,Nelson Mandela,Mahatma Gandhi,1,20
+What is the name of the largest desert in the world?,Sahara,Gobi,Kalahari,Arabian,1,15
+Who is the lead singer of the band U2?,Bono,Chris Martin,Adam Levine,Michael Stipe,1,15
+What is the name of the famous American film director who directed "The Godfather" trilogy?,Francis Ford Coppola,Steven Spielberg,Martin Scorsese,Quentin Tarantino,1,20
+What is the name of the famous American businessman and entrepreneur who founded Amazon.com?,Jeff Bezos,Bill Gates,Steve Jobs,Mark Zuckerberg,1,20
+What is the name of the famous American scientist who developed the theory of evolution?,Charles Darwin,Isaac Newton,Galileo Galilei,Nikola Tesla,1,20
+What is the name of the famous American singer known as the "King of Pop"?,Michael Jackson,Elvis Presley,Whitney Houston,Prince,1,15
+What is the name of the famous American actress who starred in "Gone with the Wind"?,Vivien Leigh,Katharine Hepburn,Bette Davis,Grace Kelly,1,20
+Who is the current Prime Minister of Canada?,Justin Trudeau,Stephen Harper,Paul Martin,Jean Chrétien,1,20
+Who is the current Chancellor of Germany?,Angela Merkel,Olaf Scholz,Annalena Baerbock,Armin Laschet,1,20
+What is the name of the famous American basketball player who is considered one of the greatest of all time?,Michael Jordan,LeBron James,Kobe Bryant,Shaquille O'Neal,1,20
+Who is the author of "The Lord of the Rings" trilogy?,J.R.R. Tolkien,George R.R. Martin,C.S. Lewis,J.K. Rowling,1,20
+What is the name of the famous American astronaut who was the first person to walk on the moon?,Neil Armstrong,Buzz Aldrin,Michael Collins,Alan Shepard,1,20
